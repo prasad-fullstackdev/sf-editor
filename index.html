@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>PS Editor</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel=stylesheet href="./assets/css/bundle.css">
+</head>
+
+<body>
+    <div class="container-fluid  p-3">
+        <div class="row">
+            <div class="col-12">
+                <div id="editor" class="sf-editor"></div>
+            </div>
+        </div>
+    </div>
+    <script src="./assets/js/bundle.js"></script>
+    <script>
+        $(function () {
+            var editorEle = document.getElementById("editor");
+            var editor = SFEditor.initWithOptions(editorEle, { enablePlugins: ["All"] });
+            //Hadle custom event
+            editor.events.on('commands.mousedown', function ($btn) {
+                // console.log('HTML', $btn);
+            });
+            //Hadle specific event
+            editor.events.on('commands.undo', function (editor, cmd) {
+                // console.log('HTML', editor, cmd);
+                // return false;
+            });
+            //Handle all command before event
+            editor.events.on('commands.before', function (editor, cmd) {
+                // console.log('commands.before', editor, cmd);
+                // if (cmd == 'bold')
+                //     return false;
+            });
+            //Notify command has executed
+            editor.events.on('commands.after', function (editor, cmd) {
+                // console.log('commands.after', editor, cmd);
+            });
+            // console.log(editor);
+            // $.ajax({
+            //     url: "https://jsonplaceholder.typicode.com/todos"
+            // }).done(function (d) {
+            //     console.log(d);
+            // });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,14 @@
+.colors-container{
+    display:flex;
+    height:200px;
+    width:200px;
+   	flex-wrap: wrap;
+  }
+  .colors-container button{
+    display: inline-block;
+    height:20px;
+    width:20px;
+    background-color:#ddd;
+    margin:2px;
+    padding:5px;
+  }
